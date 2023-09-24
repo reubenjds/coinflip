@@ -8,7 +8,11 @@
   let streak = 0;
   function flipCoin() {
     flip = getRandomInt(2);
-    streak++;
+
+    if (selectedFlip === flip) {
+      streak++;
+    }
+    
   }
 
   function reset() {
@@ -16,9 +20,14 @@
     streak = 0;
   }
 
+  function name() {
+    console.log("hello world")
+  }
+
 </script>
 
 <div class="flex flex-col text-lg justify-center place-items-center min-h-screen gap-5"> 
+  <input type="checkbox" class="toggle toggle-success" on:toggle={name} />
   {#if flip === -1}
   <select bind:value={selectedFlip} class="select select-secondary w-full max-w-xs">
     <option value={1} selected>heads</option>
