@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
-
-
   function getRandomInt(max:number) {
     return Math.floor(Math.random() * max);
   }
@@ -12,6 +9,11 @@
   function flipCoin() {
     flip = getRandomInt(2);
     streak++;
+  }
+
+  function reset() {
+    flip = -1;
+    streak = 0;
   }
 
 </script>
@@ -30,7 +32,11 @@
 
 <button disabled={selectedFlip !== flip && flip !== -1} class="btn btn-success" on:click={flipCoin}>Flip Coin</button>
 {#if streak !== 0}
-<h1> Your streak is {streak}</h1>
+<h1> Your streak is <span class="text-2xl font-bold text-yellow-400">{streak}</span></h1>
+{/if}
+
+{#if selectedFlip !== flip && flip !== -1}
+<button on:click={reset} class="btn btn-info">Play Again!</button>
 {/if}
 </div>
 
