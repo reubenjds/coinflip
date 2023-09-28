@@ -30,7 +30,7 @@ const test = () => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(
-            {"name" : 'User1'}
+            {name : 'User1'}
             )
         })
     }

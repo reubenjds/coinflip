@@ -19,4 +19,5 @@ app.get("/leaderboard", function(request, res){
 
 app.post("/test", function(request, res){
     console.log(request.body)
+    console.log("test")
 })
