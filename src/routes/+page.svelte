@@ -20,6 +20,21 @@
     streak = 0;
   }
 
+
+const test = () => {
+    return {
+        leaderboard: fetch("http://localhost:4040/test", {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(
+            {"name" : 'User1'}
+            )
+        })
+    }
+}
 </script>
 
 <div class="flex flex-col text-lg justify-center place-items-center min-h-screen gap-5"> 
@@ -42,6 +57,7 @@
 {#if selectedFlip !== flip && flip !== -1}
 <button on:click={reset} class="btn btn-info">Play Again!</button>
 {/if}
+<button on:click={test}>test</button>
 </div>
 
 
