@@ -20,19 +20,19 @@
     streak = 0;
   }
 
-
-const test = () => {
+let name = '';
+const postStreak = () => {
     return {
-        leaderboard: fetch("http://localhost:4040/test", {
+        leaderboard: fetch("http://localhost:4040/streak", {
           method: 'POST',
           mode: 'cors',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(
-            {name : 'User1'}
+            {name, streak}
             )
-        })
+        }).then(request => console.log(request.status)).then(r => console.log(r))
     }
 }
 </script>
@@ -57,7 +57,8 @@ const test = () => {
 {#if selectedFlip !== flip && flip !== -1}
 <button on:click={reset} class="btn btn-info">Play Again!</button>
 {/if}
-<button on:click={test}>test</button>
+<input placeholder='Enter your name!' bind:value={name} class="input input-bordered input-warning w-full max-w-xs" />
+<button class="btn btn-warning" on:click={postStreak}>Add to leaderboard!</button>
 </div>
 
 

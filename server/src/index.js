@@ -6,6 +6,8 @@ import cors from 'cors';
 
 const app = express()
 
+const names = []
+
 const db = new Database('coinflip.db')
 
 app.use(cors({ origin: true }));
@@ -14,10 +16,11 @@ app.listen(4040)
 
 app.get("/leaderboard", function(request, res){ 
 
-    res.json([{user:"bob", streak : 2}, {user:"john", streak : 2},{user:"harry", streak : 2}, {user:"greg", streak : 2}])
+    res.json(names)
 })
 
-app.post("/test", function(request, res){
-    console.log(request.body)
-    console.log("test")
-})
+app.post("/streak", function(request, res){
+    names.push(request.body);
+		console.log(names);
+    res.json({status: "Success"});
+});

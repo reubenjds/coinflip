@@ -20,7 +20,7 @@
           {#each leaderboard as player, index}
             <tr>
               <th>{index + 1}</th>
-              <td>{player.user}</td>
+              <td>{player.name}</td>
               <td>{player.streak}</td>
             </tr>
           {/each}
