@@ -32,7 +32,7 @@ const postStreak = () => {
           body: JSON.stringify(
             {name, streak}
             )
-        }).then(request => console.log(request.status)).then(r => console.log(r))
+        }).then(request => request.json()).then(r => console.log(r.status))
     }
 }
 </script>
@@ -56,9 +56,10 @@ const postStreak = () => {
 
 {#if selectedFlip !== flip && flip !== -1}
 <button on:click={reset} class="btn btn-info">Play Again!</button>
-{/if}
 <input placeholder='Enter your name!' bind:value={name} class="input input-bordered input-warning w-full max-w-xs" />
 <button class="btn btn-warning" on:click={postStreak}>Add to leaderboard!</button>
+{/if}
+
 </div>
 
 
