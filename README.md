@@ -1,6 +1,6 @@
 # CoinFlip
 
-Coinflip minigame using SvelteKit with leaderboard implementation using better-sqlite3.
+Coinflip minigame using SvelteKit with leaderboard implementation using better-sqlite3. Backend is currently not being hosted, so the live-demo leaderboard is not functioning.
 
 ## Developing
 
